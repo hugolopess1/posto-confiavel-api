@@ -7,6 +7,10 @@ app.get('/', (req, res) => {
   res.json({ status: 'online' });
 });
 
+app.get('/', (req, res) => {
+  res.json({ status: 'online' });
+});
+
 
 app.use(cors());
 app.use(express.json());
