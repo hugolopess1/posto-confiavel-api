@@ -277,41 +277,24 @@ app.post('/stations', async (req, res) => {
 });
 
 app.get('/stations', async (req, res) => {
-  const { lat, lng, radiusKm = 10 } = req.query;
-
-  const stations = await prisma.station.findMany({
-    orderBy: { trustScore: 'desc' },
-  });
-
-  if (!lat || !lng) return res.json(stations);
-
-  const userLat = Number(lat);
-  const userLng = Number(lng);
-  const maxRadius = Number(radiusKm);
-
-  const nearby = stations
-    .map((station) => {
-      const distanceKm = calculateDistanceKm(
-        userLat,
-        userLng,
-        station.latitude,
-        station.longitude
-      );
-      return { ...station, distanceKm: Number(distanceKm.toFixed(2)) };
-    })
-    .filter((station) => station.distanceKm <= maxRadius)
-    .sort((a, b) => a.distanceKm - b.distanceKm);
-
-  res.json([
-  {
-    id: 1,
-    name: "Posto Shell Centro",
-    gasolinePrice: 5.89,
-    ethanolPrice: 4.29,
-    trustScore: 87
+  try {
+    res.json([
+      {
+        id: 1,
+        name: "Posto Teste",
+        brand: "BR",
+        gasolinePrice: 5.89,
+        ethanolPrice: 3.99,
+        dieselPrice: 5.99
+      }
+    ]);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: error.message });
   }
-]);
 });
+
+  
 
 app.get('/stations/:id', async (req, res) => {
   const station = await prisma.station.findUnique({
