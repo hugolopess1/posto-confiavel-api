@@ -145,9 +145,11 @@ model FuelRecord {
 // 5) src/server.js
 // =====================================================
 
+
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
+
 const { PrismaClient } = require('@prisma/client');
 
 dotenv.config();
@@ -617,9 +619,7 @@ app.post('/seed', async (req, res) => {
   res.json({ message: 'Seed criado.', created });
 });
 
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Posto Confiável API rodando em http://localhost:${PORT}`);
-});
+
 // =====================================================
 // 6) RODAR
 // =====================================================
