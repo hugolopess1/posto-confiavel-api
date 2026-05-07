@@ -160,7 +160,6 @@ const prisma = new PrismaClient();
 app.use(cors());
 app.use(express.json());
 
-const PORT = process.env.PORT || 3333;
 
 function calculateDistanceKm(lat1, lon1, lat2, lon2) {
   const R = 6371;
