@@ -187,7 +187,7 @@ function calculateTrustScore(avgRating, reviewCount, suspiciousCount, complaint)
 async function refreshStationScore(stationId) {
   const reviews = await prisma.review.findMany({ where: { stationId } });
   const fuelRecords = await prisma.fuelRecord.findMany({ where: { stationId } });
-  const station = await prisma.Station.findUnique({ where: { id: stationId } });
+  const station = await prisma.station.findUnique({ where: { id: stationId } });
 
   const avgRating = reviews.length
     ? reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length
@@ -211,22 +211,11 @@ async function refreshStationScore(stationId) {
   });
 }
 
-app.get('/', async (req, res) => {
-  const station = await prisma.station.create({
-    data: {
-      name: 'Posto Shell Centro',
-      brand: 'Shell',
-      latitude: -15.958,
-      longitude: -48.27,
-      city: 'Brasília',
-      state: 'DF',
-      gasolinePrice: 5.89,
-      ethanolPrice: 4.29,
-      trustScore: 87
-    }
+app.get('/', (req, res) => {
+  res.json({
+    status: 'online',
+    message: 'API Posto Confiável funcionando'
   });
-
-  res.json(station);
 });
 // =====================================================
 // USUÁRIOS / LOGIN GOOGLE MOCK
