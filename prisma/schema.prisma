@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id    String @id @default(cuid())
+  name  String
+  email String @unique
+}
+
+model Station {
+  id            String  @id @default(cuid())
+  name          String
+  brand         String?
+  latitude      Float
+  longitude     Float
+  city          String?
+  state         String?
+  trustScore    Int     @default(50)
+  avgRating     Float   @default(0)
+  reviewCount   Int     @default(0)
+  gasolinePrice Float?
+  ethanolPrice  Float?
+  dieselPrice   Float?
+  hasComplaint  Boolean @default(false)
+}
