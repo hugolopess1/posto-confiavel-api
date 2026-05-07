@@ -1,4 +1,5 @@
 const express = require('express');
+
 const app = express();
 
 app.use(express.json());
@@ -7,11 +8,13 @@ app.get('/', (req, res) => {
   res.json({ status: 'online' });
 });
 
-app.get('/stations', async (req, res) => {
+app.get('/stations', (req, res) => {
   res.json([
     {
       id: 1,
-      name: 'Posto Teste'
+      name: 'Posto Teste',
+      brand: 'BR',
+      gasolinePrice: 5.89
     }
   ]);
 });
