@@ -3,6 +3,11 @@ const cors = require('cors');
 
 const app = express();
 
+app.get('/', (req, res) => {
+  res.json({ status: 'online' });
+});
+
+
 app.use(cors());
 app.use(express.json());
 
