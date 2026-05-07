@@ -616,8 +616,13 @@ app.post('/seed', async (req, res) => {
     ],
   });
 
-  res.json({ message: 'Seed criado.', created });
+res.json({ message: 'Seed criado.', created });
 });
+
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
+});
+
 
 
 // =====================================================
