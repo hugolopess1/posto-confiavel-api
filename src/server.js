@@ -18,7 +18,10 @@ app.get('/stations', (req, res) => {
       brand: 'BR',
       gasolinePrice: 5.89,
       latitude: -15.7942,
-      longitude: -47.8822
+      longitude: -47.8822,
+      rating: 4.8,
+      service: 'Bom atendimento',
+      fuelQuality: 'Confiável',
     },
 
     {
@@ -27,7 +30,10 @@ app.get('/stations', (req, res) => {
       brand: 'Shell',
       gasolinePrice: 5.79,
       latitude: -15.8010,
-      longitude: -47.8900
+      longitude: -47.8900,
+      rating: 4.6,
+      service: 'Atendimento rápido',
+      fuelQuality: 'Boa qualidade',
     },
 
     {
@@ -36,7 +42,10 @@ app.get('/stations', (req, res) => {
       brand: 'Ipiranga',
       gasolinePrice: 5.95,
       latitude: -15.7990,
-      longitude: -47.8780
+      longitude: -47.8780,
+      rating: 4.9,
+      service: 'Excelente atendimento',
+      fuelQuality: 'Muito confiável',
     }
   ]);
 });
