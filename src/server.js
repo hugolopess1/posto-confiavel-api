@@ -14,9 +14,29 @@ app.get('/stations', (req, res) => {
   res.json([
     {
       id: 1,
-      name: 'Posto Teste',
+      name: 'Posto BR Asa Sul',
       brand: 'BR',
-      gasolinePrice: 5.89
+      gasolinePrice: 5.89,
+      latitude: -15.7942,
+      longitude: -47.8822
+    },
+
+    {
+      id: 2,
+      name: 'Posto Shell Centro',
+      brand: 'Shell',
+      gasolinePrice: 5.79,
+      latitude: -15.8010,
+      longitude: -47.8900
+    },
+
+    {
+      id: 3,
+      name: 'Posto Ipiranga',
+      brand: 'Ipiranga',
+      gasolinePrice: 5.95,
+      latitude: -15.7990,
+      longitude: -47.8780
     }
   ]);
 });
